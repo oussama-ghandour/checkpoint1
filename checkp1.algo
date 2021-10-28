@@ -1,0 +1,18 @@
+ALGORITHM Checkpoint1
+VAR 
+ num1,num2,num3:INTEGER;
+ ch :CHAR;
+BEGIN
+
+WHILE (ch<>".") DO
+if (ch<> ""){
+    num1+++;
+    elseif
+    (ch="a" OR ch="e" OR ch="i" OR ch="O" OR ch="" OR ch="y") {
+        num2++;
+        else num3++;
+    }
+}
+
+END WHILE
+END

@@ -1,0 +1,41 @@
+PROCEDURE read_vect(n:INTEGER,VAR V :ARRAY_OF INTEGER)
+VAR
+    i:INTEGER;
+    
+BEGIN
+    FOR i FROM 0 TO n-1  DO
+        Read (V[i]);
+    END_FOR
+END
+
+PROCEDURE dot_product(Vect_1 : ARRAY_OF INTEGER,Vect_2 : ARRAY_OF INTEGER)
+VAR
+    n : INTEGER;
+    i : INTEGER;
+BEGIN
+    Dot_product := 0;
+    FOR i FROM 0 TO n  DO
+        Dot_product:= Dot_product + Vect_1[i] * Vect_2[i];
+    END_FOR
+END
+PROCEDURE vector_product(Vect_1 : ARRAY_OF INTEGER,Vect_2 : ARRAY_OF INTEGER,Vector_product:ARRAY_OF INTEGER)
+VAR
+    n : INTEGER;
+    i : INTEGER;
+BEGIN
+    Vector_product[0] := Vect_1[1] * Vect_2[3] - Vect_1[2] * Vect_2[1];
+    Vector_product[1] := Vect_1[2] * Vect_2[0] - Vect_1[0] * Vect_2[2];
+    Vector_product[2] := Vect_1[0] * Vect_2[1] - Vect_1[1] * Vect_2[0];
+END
+
+ALGORITHM Scalar_Product
+VAR
+    Vect_1 : ARRAY_OF INTEGER[3];
+    Vect_2 : ARRAY_OF INTEGER[3];
+    i,n : INTEGER;
+BEGIN
+    read_vect(n,Vect_1);
+    read_vect(n,Vect_2);;
+    dot_product(Vect_1,Vect_2,Dot_product);
+    vector_product(Vect_1,Vect_2,Vector_product);
+END

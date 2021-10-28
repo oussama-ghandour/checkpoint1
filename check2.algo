@@ -1,0 +1,89 @@
+ALGORITHM Checkpoint2
+VAR
+    i,j: INTEGER := 0;
+    sum,sum1,sum2 := 0;
+    TabOne  : ARRAY_OF INTEGER;
+    TabTwo  : ARRAY_OF INTEGER;
+    n,m:INTEGER;
+BEGIN
+    n:= TabOne.Length ;
+    Write ("Give the first number of tabone : ");
+    FOR i FROM TabOne[0] TO n-1 STEP 1 DO
+        Read TabOne[i];
+    END_FOR
+    n:=TabOne.Length;
+    m:=TabTwo.Length;
+    Write ("Give the first number of tabtwo : ");
+    FOR i FROM TabTwo TO m-1 STEP 1  DO
+        Read TabTwo[i];
+    END_FOR
+    i:= 0;
+    j:= 0;
+    FOR i FROM TabOne[0] TO n-1 STEP 1  DO
+      FOR j FROM TabTwo TO m-1 STEP 1  DO
+          IF (TabOne<>TabTwo) THEN
+              sum1:= sum + TabOne[i];
+          END_IF
+      END_FOR
+
+    FOR j FROM TabTwo[0] TO m-1 STEP 1  DO
+        FOR i FROM TabTwo[0] TO m-1 STEP 1  DO
+            IF (TabTwo<>TabOne) THEN
+                sum2:= sum + TabTwo[i];
+            END_IF
+        END_FOR
+    END_FOR
+    sum:= sum1 + sum2
+    Write("The sum of two arrays");
+END
+
+ALGORITHM Checkpoint2
+VAR
+    i,j : INTEGER := 0;
+    TabOne : ARRAY_OF INTEGER;
+    TabTwo : ARRAY_OF INTEGER;
+    htab : HASH_TABLE<INTEGER,INTEGER>;
+    key : INTEGER;
+    count : INTEGER;
+    sum,sum1,sum2 :INTEGER:=0;
+    n,m:INTEGER;
+BEGIN
+    n:= TabOne.Length ;
+    m:= TabTwo.Length;
+    Write ("Give the first number of tabone : ");
+    FOR i FROM TabOne[0] TO n-1 STEP 1 DO
+        Read TabOne[i];
+    END_FOR
+    Write ("Give the first number of tabtwo : ");
+    FOR i FROM TabTwo[0] TO m-1 STEP 1  DO
+        Read TabTwo[i];
+    END_FOR
+    FOR i FROM 0 TO n-1 STEP 1 DO
+       key:= TabOne[i];
+       IF (htab.lookup(key))) THEN
+           count:= htab.get(key)+1;
+           htab.insert(key,count);
+       END_IF
+       htab.insert(key,1);
+    END_FOR
+    FOR i 0 TO m-1 STEP 1  DO
+        key:= TabTwo[i];
+        IF (htab.lookup(key))) THEN
+            count:= htab.get(key)+1;
+            htab.insert(key,count);
+        END_IF
+        htab.insert(key,1);
+    END_FOR
+    i:= 0;
+    j:=0;
+    sum:=0;
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        IF(htab.get(TabOne[i] > 1)) THEN
+        sum1:= sum + TabOne[i];
+        END_FOR
+    FOR i FROM 0 TO n-1 STEP 1  DO
+    IF(htab.get(TabTwo[i] > 1)) THEN
+    sum2:= sum + TabOne[i];
+    END_FOR
+    sum:= sum1 + sum2;
+END
